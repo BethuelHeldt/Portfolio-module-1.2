@@ -7,6 +7,9 @@
     --h2-achtergrond-kleur: #333;/*kleur heading 2*/
     --h2-kleur: #fff;/*kleur heading 2*/
     --h3-kleur: #fff;/*kleur heading 3*/
+    --header-h1-kleur: #000;/*kleur heading 1*/
+    --header-h2-kleur: #000;/*kleur heading 2*/
+    --header-h3-kleur: #000;/*kleur heading 3*/
     --p-kleur: #fff;/*kleur paragraph tekst*/
     --a-kleur: magenta;/*kleur linkje*/
     --a-kleur-hover: #fff;/*kleur linkje als je er met je muis overheen gaat*/
@@ -34,12 +37,25 @@ h1 {
 }
 h2 {
     color: var(--h2-kleur);
+    font-size: 1.6rem;
 }
 h3 {
+    font-size: 1.2rem;
     color: var(--h3-kleur);
 }
+/*header kopjes*/
 header h1 {
 	margin-top: 0em;/*de intro moet geen ruimte boven hebben*/
+    font-size: 2rem;
+    color: var(--header-h1-kleur);
+}
+header h2 {
+    font-size: 1.6rem;
+    color: var(--header-h1-kleur);
+}
+header h3 {
+    font-size: 1.2rem;
+    color: var(--header-h1-kleur);
 }
 
 a{
