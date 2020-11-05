@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="nl">
+
+<head>
+    <!--ALLES WAT BINNEN DE <HEAD> STAAT IS NIET ZICHTBAAR BINNEN DE BROWSER-->
+    <meta charset="utf-8">
+    <title>Naam student - Blik op Kunst</title>
+    <meta name="Keywords" content="portfolio, Mediacollege Amsterdam, college, module 1.2, Blik op Kunst" />
+    <meta name="Description" content="Portfolio Naam Student - module 1.1, Blik op Kunst. Mediacollege Amsterdam" />
+    <meta name="Author" content="Naam student" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="ROBOTS" content="NOINDEX, NOFOLLOW" />
+
+    <link rel="stylesheet" href="css/basis-style.css" />
+    <link rel="stylesheet" href="css/mijn-style.css" />
+</head>
+
+<body>
+    <!--ALLES WAT BINNEN DE <BODY> STAAT IS WEL ZICHTBAAR IN DE BROWSER-->
+    <div id="container">
+        <article>
+
+            <!-- BOVENKANT PAGINA MET TITEL -->
+            <header class="content">
+                <h1>Naam student</h1>
+                <h2>Blik op Kunst</h2>
+                <h3>MV1X | 2020/2021</h3>
+            </header>
+
+            <!-- NAVIGATIE -->
+            <section id="nav">
+                <input type="checkbox" name="menu-toggle" class="menu-toggle" />
+                <div class="hamburger">
+                    <div class="bar bar1"></div>
+                    <div class="bar bar2"></div>
+                    <div class="bar bar3"></div>
+                    <div class="bar bar4"></div>
+                </div>
+                <ul class="menu clearfix">
+                    <li><a href="../index.html" class="navlink">Start</a></li>
+                    <li><a href="../portfolio-module-1-1/index.html#tegels" class="navlink">Module 1.1</a></li>
+                    <li><a href="../portfolio-module-1-2/index.html#tegels" class="navlink selected">Module 1.2</a></li>
+                    <li><a href="../portfolio-module-2-1/index.html#tegels" class="navlink">Module 2.1</a></li>
+                    <li><a href="../portfolio-module-2-2/index.html#tegels" class="navlink">Module 2.2</a></li>
+                </ul>
+            </section>
+
+            <!-- Tegels -->
+            <section id="tegels" class="content">
+<!--
+Onderstaande tegel kun je gebruiken voor afbeeldingen, filmpjes, pdf's of alleen tekst.
+
+1.  De breedte kun je makkelijk aanpassen door de class 'helft_breed' te vervangen door bijvoorbeeld:
+        kwart_breed
+        een_derde_breed
+        helft_breed
+        twee_derde_breed
+        volle_breedte
+2.  Geef elke tegel een uniek id. Nu staat er id="tegel_1"
+    Dus je 2de tegel heet dan id="tegel_2". Maar id="mijn_inleiding" mag ook. 
+3.  Zet je een pdf in een iframe? Dan moet je er ook een link onder zetten met een tekst als: klik hier voor de vergroting
+4.  Plaats je een afbeelding? Dan moet je er een link omheen zetten. Dus:
+    <a href="images/mijn-mooie-plaatje.jpg" target="_blank"><img src="mages/mijn-mooie-plaatje.jpg" alt="Beschrijf hier wat jouw plaatje voorsteld"></a>
+
+
+-->
+                <div id="tegel_1" class="tegel helft_breed">
+                    <div class="tegel_binnen">
+                        <h2>Titel van deze tegel</h2>
+<!-- 
+Zet hier een afbeelding <img>, filmpje <iframe> of pdf (ook in een <iframe>
+-->
+                        <div class="tekst">
+                            <h3>Kopje</h3>
+                            <p>Korte beschrijving/ datum/ etc... </p>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+            <footer>
+                <ul>
+                    <li>&copy; 2020 Mediacollege Amsterdam</li>
+                    <li>Naam student</li>
+                </ul>
+            </footer>
+        </article>
+    </div>
+
+</body>
+
+</html>

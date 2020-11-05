@@ -1,0 +1,484 @@
+/************************************************************************************************* kleuren inspireren mij enorm */
+:root{
+    --body-achtergrond-kleur: #ffffff;
+    --tegel-achtergrond-kleur: #333;
+    
+    --h1-kleur: #fff;/*kleur heading 1*/
+    --h2-achtergrond-kleur: #333;/*kleur heading 2*/
+    --h2-kleur: #fff;/*kleur heading 2*/
+    --h3-kleur: #fff;/*kleur heading 3*/
+    --p-kleur: #fff;/*kleur paragraph tekst*/
+    --a-kleur: magenta;/*kleur linkje*/
+    --a-kleur-hover: #fff;/*kleur linkje als je er met je muis overheen gaat*/
+}
+/************************************************************************************************* algemene styles voor HTML tags*/
+body, body *{ box-sizing: border-box;}
+body *{
+	font-family: Verdana;
+}
+body{
+	margin:0;
+	padding:0;
+	background-size: cover;
+	font-size: 16px;
+	line-height: 1.3em;
+    background-color: var(--body-achtergrond-kleur);
+}
+h1, h2, h3{
+	font-weight: normal;
+	line-height: 1.4em;
+}
+h1 {
+	margin-top: 1em;/*de intro van een periode heeft een beetje ruimte nodig, anders staat het menu er overheen*/
+    color: var(--h1-kleur);
+}
+h2 {
+    color: var(--h2-kleur);
+}
+h3 {
+    color: var(--h3-kleur);
+}
+header h1 {
+	margin-top: 0em;/*de intro moet geen ruimte boven hebben*/
+}
+
+a{
+    text-decoration:none;
+    color: var(--a-kleur);
+}
+a:hover{/*als je met je muis over een element gaat heet dat hover*/
+    text-decoration:underline;
+    text-decoration-color: var(--a-kleur-hover);
+}
+/************************************************************************************************* achtergrondplaatjes body*/
+body.start{/*de startpagina heeft een ander achtergrondplaatje dan de andere pagina's*/
+
+}
+body.opdracht{
+
+}
+/************************************************************************************************* navigatie*/
+
+/*HAMBURGER MENU*/
+.menu-toggle,
+.hamburger{/*hamburger en menu-toggle checkbox zijn net zo groot en staan over elkaar heen, menu-toggle checkbox bovenaan*/
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    margin: 0;
+    cursor: pointer;
+}
+.hamburger{/*hamburger ligt onder de menu-toggle checkbox*/
+    z-index: 99998;
+    transition: 0.3s;
+    background-color: #fff;/*achtergrondkleur en randkleur zijn  nodig als het menu over een donker of zwart vlak valt bij scrollen*/
+    border: 10px solid #FFF;
+    border-bottom-width: 0;
+    box-sizing: content-box;
+}
+.menu-toggle:checked + .hamburger {/*bij selected hamburgerknopje geen achtergrondkleur en randkleur*/
+    background-color: transparent;
+    border-color: transparent;
+}
+.menu-toggle{/*menu-toggle checkbox ligt boven alles*/
+    z-index: 99999; 
+    opacity: 0;
+}
+.menu{
+    opacity: 0;/*volledig transparant*/
+    position: fixed;
+    top:0;
+    right: -50vw;/*menu staat buiten beeld*/
+    width: 50vw;/*menu is zo breed als een halve pagina, en hij staat buiten beeld*/
+    height: 100vh;
+    z-index: 99997;/*de menu liggen overal overheen, behalve over de menu-toggle checkbox en het hamburgermenu*/
+    background-color: rgba(0, 0, 0, 0.8);
+    transition: opacity 1s, right 1s;
+}
+
+.menu-toggle:checked ~ .menu{/*menu wordt zichtbaar bij klik op menu-toggler checkbox*/
+    opacity: 100;/*volledig zichtbaar*/
+    right: 0;
+}
+/***************************************************************Hamburgermenu balkjes die bij hover en select een kruis worden*/
+.hamburger .bar {
+    width: 100%;
+    height: 16%;
+    padding-top: 16%;
+    background-color: #000;
+    margin: 16% 0 0 0;
+    transition: 0.2s;
+    
+}
+.hamburger:hover, 
+.menu-toggle:hover + .hamburger{
+    transform: scale(1.05);
+}
+
+.menu-toggle:checked + .hamburger .bar{background-color:#FFF;}
+.hamburger .bar1{margin-top: 0;}
+.hamburger .bar2{margin-bottom: 0;}
+.hamburger .bar3{margin-top: -16%;}
+
+.menu-toggle:checked + .hamburger .bar1, 
+.menu-toggle:checked + .hamburger .bar4 {opacity: 0;}
+
+.menu-toggle:checked + .hamburger .bar2 {
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    transform-origin: center center;
+}
+.menu-toggle:checked + .hamburger .bar3 {
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    transform-origin: center center;
+}
+/****************************************************************/
+
+/************************************************************************************************* navigatie hyperlinks */
+#nav > ul,
+#nav > ul > li{
+	list-style: none;
+}
+#nav > ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+    margin: 0;
+    padding: 15px 0 0 0;  
+}
+#nav > ul > li{
+	
+	flex:0 1 auto;
+    margin:0;
+    padding: 0 90px 0 0;
+    text-align: right;
+    border-bottom: 1px solid transparent;
+}
+#nav a {
+	display: block;
+	color: #FFF;
+	padding: 0 2em;
+	text-decoration: none;
+	line-height: 3em;
+}
+#nav a:hover,
+#nav a.selected {
+	background-color: #FFF;
+    color:#000;
+}
+/*clearfix is om de float op te heffen*/
+.clearfix::after{
+	content:'';
+	clear:both;
+	display:table;
+}
+/************************************************************************************************* Header/naam/hero afbeelding etc.. */
+header{
+    padding: 50px calc(50px + 2vw);
+}
+
+/************************************************************************************************* verschillende sections */
+
+section#tegels{
+    min-height: 100vh;
+    padding: 50px;
+	margin:0;
+	display: flex;/* de div #tegels is een flex-box container, elementen daarbinnen zijn flexibel in te delen */
+	flex-flow: row wrap;
+	justify-content: flex-start;
+    align-items: stretch;
+}
+.tegel{
+	padding: 2vw; /*ruimte van de rand van de tegel tot de content in de tegel*/
+	margin: 0; /*ruimte buiten de rand van de tegel, tussen de tegels dus*/
+    
+    flex-grow: 0; /*mag wel/niet GROTER zijn dan flex-basis (0 = mag niet of 1 = mag wel)*/
+    flex-shrink: 1; /*mag wel/niet KLEINER zijn dan flex-basis (0 = mag niet of 1 = mag wel)*/
+    flex-basis: 100%; /*gewenste breedte van het element (cijfer in %, px, em vh, vw of auto)*/
+    
+	min-height: 300px; /*min staat voor minimaal. Minimale hoogte*/
+    
+    display: flex;/*de tegel is zelf ook weer een flex-box container*/
+	
+}
+/*Hieronder staan de gewenste breedtes van de tegels*/
+.tegel.kwart_breed{flex-basis: 25%;}
+.tegel.een_derde_breed{flex-basis: calc(100% / 3);}/*calc staat voor calculate, bereken*/
+.tegel.helft_breed{flex-basis: 50%;}
+.tegel.twee_derde_breed{flex-basis: calc(100% / 3 * 2);}
+.tegel.volle_breedte{flex-basis: 100%;}
+
+.tegel.een_hoog{min-height: 300px;}
+.tegel.twee_hoog{min-height: 600px;}
+.tegel.drie_hoog{min-height: 900px;}
+
+/*opmaak aan de binnenkant van een tegel*/
+.tegel .tegel_binnen{
+    flex: 0 1 100%;
+	line-height: 1.3em;
+	word-break: break-word;
+    /*animatie van achtergrond plaatje en kleur bij hover*/
+	-webkit-transition: * 0.2s ease-in-out,;
+	transition: * 0.2s ease-in-out;
+    background-color: var(--tegel-achtergrond-kleur);
+    border: 1px solid black;
+    padding-bottom: 10px;
+    
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: stretch;
+    justify-content: flex-start;
+}
+
+/*dit geldt voor alle plaatjes binnen een tegel*/
+.tegel img,
+.tegel embed,
+.tegel iframe{
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    
+}
+.tegel embed,
+.tegel iframe{
+    min-height: 400px;
+    flex: 0 1 100%;
+}
+.tegel img {
+    min-height: auto;
+    flex: 0 1 auto;
+}
+.tegel .tekst{
+    padding: 0 15px;
+}
+/*dit geldt voor alle kopjes binnen een tegel*/
+.tegel_binnen h1 {
+    color: var(--h1-kleur);
+}
+.tegel_binnen h2 {
+    line-height: 1.8em;
+    padding: 0 15px;
+    color: var(--h2-kleur);
+    background-color: var(--h2-achtergrond-kleur); 
+}
+.tegel_binnen h3 {
+    color: var(--h3-kleur);
+}
+/*paragraph teksten binnen een tegel*/
+.tegel_binnen p {
+    color: var(--p-kleur);
+    line-height: 1.2em;
+    font-size: 1rem;
+}
+.tekst > a:nth-child(1) {/*linkje meteen onder een iframe of embed*/
+    font-size: 0.8rem;
+    line-height: 2em;
+}
+
+/***************************** FOOTER */
+footer{
+    display: block;
+    background-color: black;
+    color: #ccc;
+    font-size: .8rem;
+    position: relative;
+}
+footer ul, 
+footer li{
+    list-style: none;
+}
+footer ul{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+footer li{
+    flex: 0 1 auto;
+    padding: .5em 1em;
+}
+/******************************************************************************************Mediaqueries voor mobiel*/
+/*voor schermen tot  540px breed: mobiel portait modus */
+@media screen AND (max-width: 540px) AND (orientation: portrait){
+    .menu{
+        right: -100vw;/*menu staat buiten beeld*/
+        width: 100vw;/*menu is zo breed als een halve pagina, en hij staat buiten beeld*/
+    }
+    
+    /*op mobiel de titels van de site/module en de units boven laten plakken*/
+    header.content{
+        padding: 0;
+    }
+    header.content h1 {
+        position: sticky;
+        top: 0;
+        background-color: #fff;
+        width: 100%;
+        min-height: 40px;
+        padding: 5px 15px;
+    }
+    header.content h2,
+    header.content h3{
+        padding: 0 15px;
+    }
+    header.content h2{font-size:1em;}
+    header.content h3{font-size:.8em;}
+    .tegel_binnen h2 {
+        position: sticky;
+        top: 0;
+        font-size: 1.5em;        
+        padding-top: 0px;
+        padding-right: 45px;
+        padding-bottom: 5px;
+        padding-left: .5em;
+    }
+
+    .menu-toggle, .hamburger {
+        top: 0;
+        right: 0;
+        width: 34px;
+        height: calc(1.8em + 10px);
+    }
+    
+    #nav > ul{
+        padding-top: 90px;
+    }
+    #nav > ul > li{
+        width: 100%;
+        padding: 0 1em 0 1em;
+        text-align: left;
+    }
+    header{padding:1em;}
+    section#tegels{
+        flex-flow: column nowrap;
+        padding:0;
+    }
+    .tegel,
+    .tegel.kwart_breed,
+    .tegel.een_derde_breed,
+    .tegel.helft_breed,
+    .tegel.twee_derde_breed{
+        flex: 0 1 100%;
+    }
+    .tegel{padding:1em 0;}
+    .tegel .tegel_binnen{
+        border: none;
+        min-height: 100vh;/*op mobiel is de tegel altijd beeldvullend*/
+    }
+    .tegel .tegel_binnen img{
+        max-height: calc(100vh - 50px);
+        width: auto;
+    }
+    .tegel .tegel_binnen embed,
+    .tegel .tegel_binnen iframe{
+        max-height: 100vh;
+        height: calc(100vh - 50px);
+        width: 100%;
+    }
+}
+
+/*voor schermen tot  750px breed: mobiel landscape modus */
+@media screen AND (max-width: 750px) AND (orientation: landscape){
+    header.content h1 {
+        position: sticky;
+        top: 0;
+        background-color: #fff;
+        width: 100%;
+        min-height: 40px;
+        padding: 5px 15px;
+    }
+    header.content h2,
+    header.content h3{
+        padding: 0 15px;
+    }
+    header.content h2{font-size:1em;}
+    header.content h3{font-size:.8em;}
+    .tegel_binnen h2 {
+        position: sticky;
+        top: 0;
+        background-color: var(--h2-achtergrond-kleur);     
+        font-size: 1.5em;        
+        padding-top: 0px;
+        padding-right: 45px;
+        padding-bottom: 5px;
+        padding-left: .5em;
+    }
+
+    .menu-toggle, .hamburger {
+        top: 0;
+        right: 0;
+        width: 34px;
+        height: calc(1.8em + 10px);
+    }
+    #nav > ul{
+        padding-top: 90px;
+    }
+    #nav > ul > li{
+        width: 100%;
+        padding: 0 1em 0 1em;
+        text-align: left;
+    }
+    header{padding:1em;}
+    section#tegels{
+        flex-flow: column nowrap;
+        padding:0;
+    }
+    .tegel,
+    .tegel.kwart_breed,
+    .tegel.een_derde_breed,
+    .tegel.helft_breed,
+    .tegel.twee_derde_breed{
+        flex: 0 1 100%;
+    }
+    .tegel{padding:1em 0;}
+    .tegel .tegel_binnen{
+        border: none;
+    }
+    .tegel .tegel_binnen img{
+        max-height: calc(100vh - 50px);
+        width: auto;
+    }
+    .tegel .tegel_binnen embed,
+    .tegel .tegel_binnen iframe{
+        max-height: 100vh;
+        height: calc(100vh - 50px);
+        width: 100%;
+    }
+}
+
+/*voor schermen vanaf 541px  tot 880px breed en portait modus: tablet */
+@media screen AND (min-width: 541px) AND (max-width: 880px) AND (orientation: portrait){
+    
+    /*tablet in portrait modus is te smal voor meerdere tegels naast elkaar. Dus alles 100% breed en onder elkaar*/
+    .tegel,
+    .tegel.kwart_breed,
+    .tegel.een_derde_breed,
+    .tegel.helft_breed,
+    .tegel.twee_derde_breed{
+        flex: 0 1 100%;
+    }
+    
+    .menu{
+        right: -100vw;/*menu staat buiten beeld*/
+        width: 100vw;/*menu is zo breed als een halve pagina, en hij staat buiten beeld*/
+    }
+}
+
+/*voor schermen vanaf 751px breed t/m 1024px breed en landscape modus : tablet*/
+@media screen AND (min-width: 751px) AND (max-width: 1024px) AND (orientation: landscape){
+    
+    /*tablet in landscape modus is te smal voor 3 of 4 tegels naast elkaar. Dus alles 50% breed*/
+    .tegel.kwart_breed,
+    .tegel.een_derde_breed,
+    .tegel.helft_breed,
+    .tegel.twee_derde_breed{
+        flex: 0 1 50%;
+    }
+}
