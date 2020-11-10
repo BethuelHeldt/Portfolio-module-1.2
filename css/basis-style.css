@@ -17,7 +17,7 @@
 /************************************************************************************************* algemene styles voor HTML tags*/
 body, body *{ box-sizing: border-box;}
 body *{
-	font-family: Verdana;
+	font-family: Verdana, Arial, sans-serif;
 }
 body{
 	margin:0;
