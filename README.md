@@ -1,7 +1,7 @@
-# Template module 1.2
- Web template module 1.2 Mediacollege Amsterdam
+# Template Portfolio module 2
+ Web template module 2 Mediacollege Amsterdam
 
-Dit is de template waarmee je jouw portfolio bouwt voor de module 1.2 Blik op Kunst.
+Dit is de template waarmee je jouw portfolio bouwt voor module 2 Blik op Kunst.
 In de loop van het jaar leer je steeds beter coderen in HTML en CSS. 
 Je ka dan steeds meer aanpassen. 
 
